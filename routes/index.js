@@ -108,7 +108,7 @@ router.post('/homepage', async function(req, res, next) {
 
 /* ROUTE BASKET */
 router.get('/basket', function(req, res, next) {
-
+console.log("début de la route basket");
     req.session.basket = {
       departure: req.query.departureFromFront,
       arrival: req.query.departureFromFront,
@@ -117,9 +117,12 @@ router.get('/basket', function(req, res, next) {
       price: req.query.priceFromFront
     }
 
-  console.log(req.session.basket)
 
-  res.render('basket', {dataBasket: req.session.basket});
+  var dataBasket = req.session.basket;
+  console.log(dataBasket);
+  console.log(dataBasket.departure);
+
+  res.render('basket', {dataBasket});
 });
 
 // /* ROUTE ORDERS */
