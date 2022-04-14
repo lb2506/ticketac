@@ -40,17 +40,39 @@ router.post('/sign-up', async function(req, res, next) {
   
 });
 
-// /* ROUTE SIGN-IN */
-// router.post('/sign-in', function(req, res, next) {
+/* ROUTE SIGN-IN */
+router.post('/sign-in', async function(req, res, next) {
 
-//   res.redirect('/');
-//   res.redirect('/homepage');
-// });
+  var searchUser = await userModel.findOne({
+    email: req.body.emailFromFront,
+    password: req.body.passwordFromFront
+  })
 
-// /* ROUTE HOMEPAGE */
-// router.get('/homepage', function(req, res, next) {
-//   res.render('homepage', {});
-// });
+  if(searchUser!= null){
+    req.session.user = {
+      firstname: newUserSave.firstname,
+      lastname: newUserSave.lastname,
+      id: newUserSave._id,
+    }
+    res.redirect('/homepage')
+  } else {
+    res.redirect('/')
+  }
+
+});
+
+/* ROUTE HOMEPAGE */
+router.get('/homepage', async function(req, res, next) {
+  // var journeyList = await journeyModel.find();
+
+
+
+  res.render('result', {});
+} else {
+  res.redirect('/error');
+}
+
+});
 
 // /* ROUTE RESULT */
 // router.get('/result', function(req, res, next) {
@@ -68,11 +90,11 @@ router.post('/sign-up', async function(req, res, next) {
 //   res.render('oders', {});
 // });
 
-// /* ROUTE LOGOUT */
-// router.get('/logout', function(req,res,next){
-
-//   res.redirect('/')
-// });
+/* ROUTE LOGOUT */
+router.get('/logout', function(req,res,next){
+  req.session.user = null;
+  res.redirect('/')
+});
 
 module.exports = router;
 
