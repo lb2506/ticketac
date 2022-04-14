@@ -61,7 +61,33 @@ a{
 /* SECTION BODY */
 
 
+/* FORMULAIRE D'INSCRIPTION ET DE CONNEXION */
+.blocconnect {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
 
+.titreform {
+  margin-bottom: 20px;
+}
+
+.blocsignup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.blocsignin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 50px;
+}
+
+.buttonv {
+}
 
 /* SECTION FOOTER */
 

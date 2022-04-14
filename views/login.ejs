@@ -28,22 +28,22 @@
         <div class="blocconnect">
             <!-- SIGN UP -->
             <div class="blocsignup">
-              <h4 class="titreform">S'enregistrer</h4>
+              <h3 class="titreform">S'enregistrer</h3>
               <form action="/users/sign-up" method="post">
-                <input type="text" name="firstnameFromFront" placeholder="Prénom" required>
-                <input type="text" name="lastnameFromFront" placeholder="Nom" required>
-                <input type="email" name="emailFromFront" placeholder="Adresse mail" required>
-                <input type="password" name="passwordFromFront" placeholder="Mot de passe" required>
-                <button type="submit" class="btn btn-info">Valider</button>
+                <div><input type="text" name="firstnameFromFront" placeholder="Prénom" required></div>
+                <div><input type="text" name="lastnameFromFront" placeholder="Nom" required></div>
+                <div><input type="email" name="emailFromFront" placeholder="Adresse mail" required></div>
+                <div><input type="password" name="passwordFromFront" placeholder="Mot de passe" required></div>
+                <div><button type="submit" class="btn btn-info">Valider</button></div>
               </form>
             </div>
             <!-- SIGN IN -->
             <div class="blocsignin">
-              <h4 class="titreform">Se connecter</h4>
+              <h3 class="titreform">Se connecter</h3>
               <form action="/users/sign-in" method="post">
-                <input type="emailFromFront" name="email" placeholder="Adresse mail" required>
-                <input type="passwordFromFront" name="password" placeholder="Mot de passe" required>
-                <button type="submit">Valider</button>
+                <div><input type="emailFromFront" name="email" placeholder="Adresse mail" required></div>
+                <div><input type="passwordFromFront" name="password" placeholder="Mot de passe" required></div>
+                <div><button type="submit">Valider</button></div>
               </form>
             </div>
           </div>
