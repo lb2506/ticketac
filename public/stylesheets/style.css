@@ -60,8 +60,6 @@ a{
 
 /* SECTION BODY */
 
-#body{}
-
 /* FORMULAIRE D'INSCRIPTION ET DE CONNEXION */
 .blocconnect {
   display: flex;
@@ -111,7 +109,6 @@ a{
 .search_ctn{
 
   margin-top: 10vh;
-<<<<<<< HEAD
   padding: 0 20vw;
 }
 
@@ -120,8 +117,6 @@ a{
   margin-top: 40px;
   background-color: antiquewhite;
 
-=======
->>>>>>> 59f00d3dc23c2a2e3edc4f2aaf6dded43817fa67
 }
 
 .landmark{
