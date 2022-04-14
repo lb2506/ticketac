@@ -68,11 +68,56 @@ a{
   height: 100%;
 }
 
+/* FORMULAIRE D'INSCRIPTION ET DE CONNEXION */
+.blocconnect {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.titreform {
+  margin-bottom: 10px;
+  color: white;
+  font-weight: bold;
+}
+
+.champs {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.textall {
+  text-align: center;
+  height: 30px;
+  width: 260px;
+  border-radius: 10px;
+}
+
+.connectbut {
+  height: 30px;
+  width: 160px;
+  background-color: #d63031;
+  border-radius: 10px;
+  color: white;
+}
+
+.blocsignup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.blocsignin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 50px;
+}
+
 .search_ctn{
   background-color: aquamarine;
   text-align: center;
   margin-top: 10vh;
-
 }
 
 .landmark{
