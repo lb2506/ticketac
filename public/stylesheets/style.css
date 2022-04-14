@@ -60,24 +60,17 @@ a{
 
 /* SECTION BODY */
 
-#body{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
-
 /* FORMULAIRE D'INSCRIPTION ET DE CONNEXION */
 .blocconnect {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 100px;
 }
 
 .titreform {
   margin-bottom: 10px;
-  color: white;
+  color: antiquewhite;
   font-weight: bold;
 }
 
@@ -98,7 +91,7 @@ a{
   width: 160px;
   background-color: #d63031;
   border-radius: 10px;
-  color: white;
+  color: antiquewhite;
 }
 
 .blocsignup {
@@ -115,14 +108,49 @@ a{
 }
 
 .search_ctn{
-  background-color: aquamarine;
-  text-align: center;
+  height: 80vh;
   margin-top: 10vh;
+  padding: 0 20vw;
+}
+
+.input_ctn{
+  text-align: center;
+  margin-top: 40px;
+  background-color: antiquewhite;
 }
 
 .landmark{
   height: 35vh;
   margin-top: 10vh;
+}
+
+.input_search{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.input{
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  width: 200px;
+  margin: 5px 10px;
+}
+
+.btn{
+  background-color: rgb(190, 0, 0);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px 10px;
+  width: 50px;
+  height: 40px;
+}
+
+h2{
+  color: #fff;
 }
 
 /* SECTION FOOTER */
@@ -135,6 +163,8 @@ a{
   padding: 15px 0;
   color: #fff;
   font-style: italic;
+  height: 10vh;
+  background-color: antiquewhite;
 }
 
 

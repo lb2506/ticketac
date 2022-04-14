@@ -9,6 +9,8 @@ var usersRouter = require('./routes/users');
 var models = require('./routes/index');
 require('./models/connection')
 
+require('./models/connection');
+
 // Initiatlisation variables de session
 var session = require("express-session");
 var app = express();
