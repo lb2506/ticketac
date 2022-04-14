@@ -25,6 +25,7 @@ nav{
   align-items: center;
   height: 10vh;
   padding: 0 20px;
+  
 }
 
 .logo_ctn{
@@ -94,6 +95,7 @@ a{
  justify-content: space-evenly;
  text-align: center;
  align-items: center;
+ padding: 0 15%;
 }
 
 .landmark{
@@ -102,7 +104,7 @@ a{
 
 .input{
   height: 40px;
-  width: 300px;
+  width: 250px;
   margin: 10px 10px;
   border: none;
   border-radius: 5px;
@@ -121,8 +123,7 @@ a{
   padding: 0 20px;
   border-radius: 5px;
   cursor: pointer;
-  margin-left: 20px;
-
+  margin-left: auto;
 }
 
 /* SECTION FOOTER */
@@ -141,7 +142,7 @@ footer{
 
 table{
   background-color: #fff;
-  width: 70%;
+  width: 100%;
   border-radius: 5px;
 }
 
