@@ -6,7 +6,8 @@ var userModel = require('../models/users')
 
 /* GET "/" */
 router.get('/', function(req, res, next) {
-  res.render('login', {});
+  req.session.user = null;
+  res.render('login');
 });
 
 /* ROUTE SIGN-UP */
@@ -62,7 +63,17 @@ router.post('/sign-in', async function(req, res, next) {
 
 });
 
-/* ROUTE HOMEPAGE */
+
+/* ROUTE GET HOMEPAGE */
+router.get('/homepage', async function(req, res, next) {
+  if (req.session.user == null) {
+    res.redirect('/');
+  } else {
+  res.render('homepage');
+  }
+});
+
+/* ROUTE POST HOMEPAGE */
 router.post('/homepage', async function(req, res, next) {
 
   var searchJourney = await journeyModel.find({
@@ -83,10 +94,15 @@ router.post('/homepage', async function(req, res, next) {
 
 });
 
-// /* ROUTE RESULT */
-// router.get('/result', function(req, res, next) {
-//   res.render('result');
-// });
+/* ROUTE RESULT */
+router.get('/result', function(req, res, next) {
+  res.render('result');
+});
+
+/* ROUTE NO RESULT */
+router.get('/noresult', function(req, res, next) {
+  res.render('noresult');
+});
 
 // /* ROUTE BASKET */
 // router.get('/basket', function(req, res, next) {
