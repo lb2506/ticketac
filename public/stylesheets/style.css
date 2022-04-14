@@ -111,17 +111,19 @@ a{
   padding: 0 10px;
 }
 
-.connexion{
+.deconnexion{
   color: rgb(214, 55, 55);
 }
+
 .btn{
   background-color: rgb(214, 55, 55);
   color: #fff;
   height: 40px;
   border: none;
-  width: 60px;
+  padding: 0 20px;
   border-radius: 5px;
   margin: 0 60px;
+  cursor: pointer;
 
 }
 
