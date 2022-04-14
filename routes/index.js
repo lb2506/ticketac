@@ -104,10 +104,10 @@ router.get('/noresult', function(req, res, next) {
   res.render('noresult');
 });
 
-// /* ROUTE BASKET */
-// router.get('/basket', function(req, res, next) {
-//   res.render('basket', {});
-// });
+/* ROUTE BASKET */
+router.get('/basket', function(req, res, next) {
+  res.render('basket', {});
+});
 
 // /* ROUTE ORDERS */
 // router.get('/orders', function(req, res, next) {
