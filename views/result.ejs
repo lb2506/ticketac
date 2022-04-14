@@ -27,6 +27,7 @@
        <% if (searchJourney) { %>
         <%for (var i=0; i<searchJourney.length; i++) {%>
 
+<<<<<<< HEAD
             <div class="cartebillet">
                 <div><%=searchJourney[i].departure%>/<%=searchJourney[i].arrival%></div>
                 <div><%=searchJourney[i].departureTime%></div>
@@ -36,6 +37,17 @@
     
             <%}%>
        <% } %> 
+=======
+        <div class="cartebillet">
+            <div><%=searchJourney[i].departure%>/<%=searchJourney[i].arrival%></div>
+            <div><%=searchJourney[i].departureTime%></div>
+            <div>P<%=searchJourney[i].price%>€</div>
+            <a href="./basket?departureFromFront=<%=searchJourney[i].departure%>&arrivalFromFront=<%=searchJourney[i].departure%>&dateFromFront=<%=searchJourney[i].date%>&departureTimeFromFront=<%=searchJourney[i].departureTime%>&priceFromFront=<%=searchJourney[i].price%>"><button class="btn" type="submit" class="btn btn-info">Reserver</button></a>
+        </div>
+
+        <%}%>
+        <% } %> 
+>>>>>>> b409e8dca3ff0f458b1b5589db4fb02488471fa2
 
     </section>
     
