@@ -106,7 +106,22 @@ router.get('/noresult', function(req, res, next) {
 
 /* ROUTE BASKET */
 router.get('/basket', function(req, res, next) {
-  res.render('basket', {});
+
+  if (req.session.basket == null) {
+    req.session.basket
+  }
+
+  req.session.basket.push ({
+    departure: req.query.departureFromFront,
+    arrival: req.query.departureFromFront,
+    date: req.query.dateFromFront,
+    departureTime: req.query.departureTimeFromFront,
+    price: req.query.priceFromFront
+  })
+
+  var dataBasket = req.session.basket
+
+  res.render('basket', {dataBasket: req.session.basket});
 });
 
 // /* ROUTE ORDERS */
