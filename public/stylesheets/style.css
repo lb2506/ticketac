@@ -62,9 +62,56 @@ a{
 
 #body{}
 
+/* FORMULAIRE D'INSCRIPTION ET DE CONNEXION */
+.blocconnect {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.titreform {
+  margin-bottom: 10px;
+  color: white;
+  font-weight: bold;
+}
+
+.champs {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.textall {
+  text-align: center;
+  height: 30px;
+  width: 260px;
+  border-radius: 10px;
+}
+
+.connectbut {
+  height: 30px;
+  width: 160px;
+  background-color: #d63031;
+  border-radius: 10px;
+  color: white;
+}
+
+.blocsignup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.blocsignin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 50px;
+}
+
 .search_ctn{
 
   margin-top: 10vh;
+<<<<<<< HEAD
   padding: 0 20vw;
 }
 
@@ -73,6 +120,8 @@ a{
   margin-top: 40px;
   background-color: antiquewhite;
 
+=======
+>>>>>>> 59f00d3dc23c2a2e3edc4f2aaf6dded43817fa67
 }
 
 .landmark{

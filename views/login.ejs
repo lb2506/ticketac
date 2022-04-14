@@ -28,22 +28,22 @@
         <div class="blocconnect">
             <!-- SIGN UP -->
             <div class="blocsignup">
-              <h4 class="titreform">S'enregistrer</h4>
-              <form action="/users/sign-up" method="post">
-                <input type="text" name="firstnameFromFront" placeholder="Prénom" required>
-                <input type="text" name="lastnameFromFront" placeholder="Nom" required>
-                <input type="email" name="emailFromFront" placeholder="Adresse mail" required>
-                <input type="password" name="passwordFromFront" placeholder="Mot de passe" required>
-                <button type="submit" class="btn btn-info">Valider</button>
+              <h3 class="titreform">S'enregistrer</h3>
+              <form action="/sign-up" method="post">
+                <div class="champs"><input class="textall" type="text" name="firstnameFromFront" placeholder="Prénom" required></div>
+                <div class="champs"><input class="textall" type="text" name="lastnameFromFront" placeholder="Nom" required></div>
+                <div class="champs"><input class="textall" type="email" name="emailFromFront" placeholder="Adresse mail" required></div>
+                <div class="champs"><input class="textall" type="password" name="passwordFromFront" placeholder="Mot de passe" required></div>
+                <div class="champs"><button class="connectbut" type="submit" class="btn btn-info">Valider</button></div>
               </form>
             </div>
             <!-- SIGN IN -->
             <div class="blocsignin">
-              <h4 class="titreform">Se connecter</h4>
-              <form action="/users/sign-in" method="post">
-                <input type="emailFromFront" name="email" placeholder="Adresse mail" required>
-                <input type="passwordFromFront" name="password" placeholder="Mot de passe" required>
-                <button type="submit">Valider</button>
+              <h3 class="titreform">Se connecter</h3>
+              <form action="/sign-in" method="post">
+                <div class="champs"><input class="textall" type="emailFromFront" name="email" placeholder="Adresse mail" required></div>
+                <div class="champs"><input class="textall" type="passwordFromFront" name="password" placeholder="Mot de passe" required></div>
+                <div class="champs"><button class="connectbut" type="submit">Valider</button></div>
               </form>
             </div>
           </div>

@@ -40,16 +40,44 @@ router.post('/sign-up', async function(req, res, next) {
   
 });
 
-// /* ROUTE SIGN-IN */
-// router.post('/sign-in', function(req, res, next) {
+/* ROUTE SIGN-IN */
+router.post('/sign-in', async function(req, res, next) {
 
-//   res.redirect('/');
-//   res.redirect('/homepage');
-// });
+  var searchUser = await userModel.findOne({
+    email: req.body.emailFromFront,
+    password: req.body.passwordFromFront
+  })
+
+  if(searchUser!= null){
+    req.session.user = {
+      firstname: newUserSave.firstname,
+      lastname: newUserSave.lastname,
+      id: newUserSave._id,
+    }
+    res.redirect('/homepage')
+  } else {
+    res.redirect('/')
+  }
+
+});
 
 /* ROUTE HOMEPAGE */
-router.get('/homepage', function(req, res, next) {
-  res.render('homepage', {});
+router.get('/homepage', async function(req, res, next) {
+
+  var searchJourney = await journeyModel.find({
+    departure: req.body.departureFromFront,
+    arrival: req.body.arrivalFromFront,
+    date: req.body.dateFromFront,
+       // Attention peut être un problème de format de dates pour pouvoir les comparer
+  })
+
+  if(searchJourney!= null){
+    //Ou plutôt if 'searchJourney est un tableau vide
+  res.render('result', {searchJourney});
+} else {
+  res.redirect('/error');
+}
+
 });
 
 // /* ROUTE RESULT */
@@ -68,23 +96,13 @@ router.get('/homepage', function(req, res, next) {
 //   res.render('oders', {});
 // });
 
-// /* ROUTE LOGOUT */
-// router.get('/logout', function(req,res,next){
-
-//   res.redirect('/')
-// });
+/* ROUTE LOGOUT */
+router.get('/logout', function(req,res,next){
+  req.session.user = null;
+  res.redirect('/')
+});
 
 module.exports = router;
-
-
-
-
-
-
-
-
-
-
 
 // -----------------DÉPLACÉ DANS connection.js-----------------------------------------
 // const mongoose = require('mongoose');
