@@ -120,7 +120,6 @@ a{
   border: none;
   padding: 0 20px;
   border-radius: 5px;
-  margin: 0 60px;
   cursor: pointer;
 
 }
@@ -144,11 +143,20 @@ table{
   width: 70%;
 }
 
-
 tr{
   height: 60px;
 }
 
 tfoot{
   background-color: rgb(252, 194, 202);
+}
+
+/* RESULT PAGE */
+
+.cartebillet{
+  background-color: #fff;
+  height: 100px;
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
 }
