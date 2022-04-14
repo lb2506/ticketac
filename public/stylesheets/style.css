@@ -108,7 +108,7 @@ a{
 }
 
 .search_ctn{
-
+  height: 80vh;
   margin-top: 10vh;
   padding: 0 20vw;
 }
@@ -117,7 +117,6 @@ a{
   text-align: center;
   margin-top: 40px;
   background-color: antiquewhite;
-
 }
 
 .landmark{
@@ -164,6 +163,8 @@ h2{
   padding: 15px 0;
   color: #fff;
   font-style: italic;
+  height: 10vh;
+  background-color: antiquewhite;
 }
 
 

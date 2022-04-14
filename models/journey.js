@@ -9,3 +9,5 @@ var journeySchema = mongoose.Schema({
   });
   
   var journeyModel = mongoose.model('journey', journeySchema);
+
+  module.exports = journeyModel;

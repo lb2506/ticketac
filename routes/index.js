@@ -62,21 +62,18 @@ router.post('/sign-in', async function(req, res, next) {
 });
 
 /* ROUTE HOMEPAGE */
-router.get('/homepage', async function(req, res, next) {
+router.get('/homepage', function(req, res, next) {
 
-  var searchJourney = await journeyModel.find({
-    departure: req.body.departureFromFront,
-    arrival: req.body.arrivalFromFront,
-    date: req.body.dateFromFront,
-       // Attention peut être un problème de format de dates pour pouvoir les comparer
-  })
+  //var searchJourney = await journeyModel.find()
 
-  if(searchJourney!= null){
-    //Ou plutôt if 'searchJourney est un tableau vide
-  res.render('result', {searchJourney});
-} else {
-  res.redirect('/error');
-}
+//   if(searchJourney!= null){
+//     //Ou plutôt if 'searchJourney est un tableau vide
+//   res.render('result', {searchJourney});
+// } else {
+//   res.redirect('/error');
+// }
+
+res.render('homepage')
 
 });
 
