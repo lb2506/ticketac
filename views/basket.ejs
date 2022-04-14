@@ -34,13 +34,19 @@
               </tr>
             </thead>
             <tbody>
+
+              <% for (var i=0; i<dataBasket.length; i++) {%>
+
               <tr>
-                <td>1</td>
-                <td>Paris / Lille</td>
-                <td>02/12/2019</td>
-                <td>9:00</td>
-                <td>90€</td>
+                <td><%=(i+1)%></td>
+                <td><%=dataBasket[i].departure%>/<%=dataBasket[i].arrival%></td>
+                <td><%=dataBasket[i].date%></td>
+                <td><%=dataBasket[i].departureTime%></td>
+                <td><%=dataBasket[i].price%> €</td>
               </tr>
+
+              <%}%>
+
             </tbody>
             <tfoot>
                 <tr>

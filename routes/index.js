@@ -23,11 +23,6 @@ router.get('/noresult', function(req, res, next) {
   res.render('noresult');
 });
 
-/* ROUTE BASKET */
-router.get('/basket', function(req, res, next) {
-  res.render('basket', {});
-});
-
 /* ROUTE SIGN-UP */
 router.post('/sign-up', async function(req, res, next) {
 
@@ -66,8 +61,6 @@ router.post('/sign-in', async function(req, res, next) {
     password: req.body.passwordFromFront
   })
 
-  
-
   if(searchUser!= null){
     req.session.user = {
       firstname: searchUser.firstname,
@@ -82,7 +75,6 @@ router.post('/sign-in', async function(req, res, next) {
   }
 
 });
-
 
 /* ROUTE GET HOMEPAGE */
 router.get('/homepage', async function(req, res, next) {
@@ -112,6 +104,22 @@ router.post('/homepage', async function(req, res, next) {
     res.redirect('/result');
   }
 
+});
+
+/* ROUTE BASKET */
+router.get('/basket', function(req, res, next) {
+
+    req.session.basket = {
+      departure: req.query.departureFromFront,
+      arrival: req.query.departureFromFront,
+      date: req.query.dateFromFront,
+      departureTime: req.query.departureTimeFromFront,
+      price: req.query.priceFromFront
+    }
+
+  console.log(req.session.basket)
+
+  res.render('basket', {dataBasket: req.session.basket});
 });
 
 // /* ROUTE ORDERS */
