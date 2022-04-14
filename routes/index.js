@@ -6,8 +6,26 @@ var userModel = require('../models/users')
 
 /* GET "/" */
 router.get('/', function(req, res, next) {
-  req.session.user = null;
+  if (!req.session.user) {
+    req.session.user = null;
+  }
   res.render('login');
+});
+
+/* ROUTE RESULT */
+router.get('/result', function(req, res, next) {
+  console.log(req.session.user)
+  res.render('result', {searchJourney: req.session.user.journeys})
+});
+
+/* ROUTE NO RESULT */
+router.get('/noresult', function(req, res, next) {
+  res.render('noresult');
+});
+
+/* ROUTE BASKET */
+router.get('/basket', function(req, res, next) {
+  res.render('basket', {});
 });
 
 /* ROUTE SIGN-UP */
@@ -48,13 +66,15 @@ router.post('/sign-in', async function(req, res, next) {
     password: req.body.passwordFromFront
   })
 
+  
+
   if(searchUser!= null){
     req.session.user = {
       firstname: searchUser.firstname,
       lastname: searchUser.lastname,
       id: searchUser._id
     }
-    res.render('homepage')
+    res.redirect('/homepage')
     console.log("ok")
   } else {
     res.redirect('/')
@@ -82,31 +102,16 @@ router.post('/homepage', async function(req, res, next) {
     date: req.body.dateFromFront,
   })
 
-  console.log(searchJourney)
+  console.log(searchJourney.length)
 
   if(searchJourney.length == 0){
     console.log("pas de trajet trouvé")
     res.redirect('/noresult');
-  } else if (searchJourney.length >= 1) {
-    console.log("trajet trouvé")
-    res.render('result', {searchJourney});
+  } else {
+    req.session.user.journeys = searchJourney
+    res.redirect('/result');
   }
 
-});
-
-/* ROUTE RESULT */
-router.get('/result', function(req, res, next) {
-  res.render('result');
-});
-
-/* ROUTE NO RESULT */
-router.get('/noresult', function(req, res, next) {
-  res.render('noresult');
-});
-
-/* ROUTE BASKET */
-router.get('/basket', function(req, res, next) {
-  res.render('basket', {});
 });
 
 // /* ROUTE ORDERS */

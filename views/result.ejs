@@ -15,7 +15,7 @@
                 <a href="#">Ticketac</a>
             </div>
             <ul>
-                <li><a class="connexion" href="#">Connexion</a></li>
+                <li><a class="deconnexion" href="#">Déconnexion</a></li>
                 <li><a href="#">Mes derniers voyages</a></li>
             </ul>
         </nav>
@@ -24,16 +24,18 @@
     <section id="main_content">
         <div>Ticket disponible pour le <%=searchJourney[0].date%></div>
 
+       <% if (searchJourney) { %>
         <%for (var i=0; i<searchJourney.length; i++) {%>
 
-        <div class="cartebillet">
-            <div><%=searchJourney[i].departure%>/<%=searchJourney[i].arrival%></div>
-            <div><%=searchJourney[i].departureTime%></div>
-            <div>P<%=searchJourney[i].price%>€</div>
-            <a href="./homepage"><button class="btn" type="submit" class="btn btn-info">Reserver</button></a>
-        </div>
-
-        <%}%>
+            <div class="cartebillet">
+                <div><%=searchJourney[i].departure%>/<%=searchJourney[i].arrival%></div>
+                <div><%=searchJourney[i].departureTime%></div>
+                <div>P<%=searchJourney[i].price%>€</div>
+                <a href="./homepage"><button class="btn" type="submit" class="btn btn-info">Reserver</button></a>
+            </div>
+    
+            <%}%>
+       <% } %> 
 
     </section>
     
