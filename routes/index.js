@@ -1,11 +1,12 @@
 var express = require('express');
+const { redirect } = require('express/lib/response');
 var router = express.Router();
 
 var journeyModel = require('../models/journey')
 var userModel = require('../models/users')
 
 /* ROUTE SIGN-UP */
-router.post('/sign-up', function(req, res, next) {
+router.post('/sign-up', async function(req, res, next) {
 
   var searchUser = await userModel.findOne({
     email: req.body.emailFromFront
@@ -13,32 +14,36 @@ router.post('/sign-up', function(req, res, next) {
   
   if(!searchUser){
     var newUser = new userModel({
-      username: req.body.usernameFromFront,
-      email: req.body.emailFromFront,
+      firstname: req.body.firstnameFromFront,
+      lastname: req.body.lastnameFromFront,
       password: req.body.passwordFromFront,
+      username: req.body.usernameFromFront,
     })
   
     var newUserSave = await newUser.save();
   
     req.session.user = {
-      name: newUserSave.username,
+      firstname: newUserSave.firstname,
+      lastname: newUserSave.lastname,
       id: newUserSave._id,
     }
+
+    res.redirect('/homepage')
+  } else {
+    res.redirect('/')
+  }
   
-    console.log(req.session.user)
-  
-
-
-
-
-
-  res.redirect('/');
-  res.redirect('/homepage');
 });
 
 /* ROUTE SIGN-IN */
 router.post('/sign-in', function(req, res, next) {
 
+
+
+
+
+
+  
   res.redirect('/');
   res.redirect('/homepage');
 });
