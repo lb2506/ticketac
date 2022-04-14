@@ -24,10 +24,12 @@
     <section id="main_content">
         <h2>Billet aller simple</h2>
         <div>
-            <input class="input" type="text" name="departure" placeholder="Départ">
-            <input class="input" type="text" name="arrival" placeholder="Arrivée">
-            <input class="input" type="date" name="date" placeholder="Date">
-            <input class="btn" type="submit" name="submit" value="Go !">
+            <form action="/homepage" method="post">
+                <input class="input" type="text" name="departureFromFront" placeholder="Départ">
+                <input class="input" type="text" name="arrivalFromFront" placeholder="Arrivée">
+                <input class="input" type="date" name="dateFromFront" placeholder="Date">
+                <input class="btn" type="submit" name="submit" value="Go !">
+            </form>
         </div>
             <img class="landmark" src="../images/landmark.png" alt="landmark">
     </section>

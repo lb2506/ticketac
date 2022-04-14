@@ -62,22 +62,26 @@ router.post('/sign-in', async function(req, res, next) {
 
 });
 
-// /* ROUTE HOMEPAGE */
-// router.get('/homepage', async function(req, res, next) {
+/* ROUTE HOMEPAGE */
+router.post('/homepage', async function(req, res, next) {
 
-//   var searchJourney = await journeyModel.find({
-//     departure: req.body.departureFromFront,
-//     arrival: req.body.arrivalFromFront,
-//     date: req.body.dateFromFront,
-//   })
+  var searchJourney = await journeyModel.find({
+    departure: req.body.departureFromFront,
+    arrival: req.body.arrivalFromFront,
+    date: req.body.dateFromFront,
+  })
 
-//   if(searchJourney!= null){
-//   res.render('result', {searchJourney});
-// } else {
-//   res.redirect('/error');
-// }
+  console.log(searchJourney)
 
-// });
+  if(searchJourney.length == 0){
+    console.log("pas de trajet trouvé")
+    res.redirect('/noresult');
+  } else if (searchJourney.length >= 1) {
+    console.log("trajet trouvé")
+    res.render('result', {searchJourney});
+  }
+
+});
 
 // /* ROUTE RESULT */
 // router.get('/result', function(req, res, next) {
