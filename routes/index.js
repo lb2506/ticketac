@@ -63,10 +63,6 @@ router.post('/sign-in', async function(req, res, next) {
 
 });
 
-<<<<<<< HEAD
-/* ROUTE HOMEPAGE */
-
-=======
 
 /* ROUTE GET HOMEPAGE */
 router.get('/homepage', async function(req, res, next) {
@@ -78,7 +74,6 @@ router.get('/homepage', async function(req, res, next) {
 });
 
 /* ROUTE POST HOMEPAGE */
->>>>>>> 382d55650c603a42846725a95beed2aca6521935
 router.post('/homepage', async function(req, res, next) {
 
   var searchJourney = await journeyModel.find({

@@ -22,13 +22,19 @@
     </header>
 
     <section id="main_content">
-        <div>Ticket disponible pour le --Date à integrer selon la recherche--</div>
+        <div>Ticket disponible pour le <%=searchJourney[0].date%></div>
+
+        <%for (var i=0; i<searchJourney.length; i++) {%>
+
         <div class="cartebillet">
-            <div>Depart/Destiantion</div>
-            <div>Heure de départ du train</div>
-            <div>Prix de billet</div>
+            <div><%=searchJourney[i].departure%>/<%=searchJourney[i].arrival%></div>
+            <div><%=searchJourney[i].departureTime%></div>
+            <div>P<%=searchJourney[i].price%>€</div>
             <a href="./homepage"><button class="btn" type="submit" class="btn btn-info">Reserver</button></a>
         </div>
+
+        <%}%>
+
     </section>
     
     <footer>
