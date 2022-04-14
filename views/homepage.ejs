@@ -8,51 +8,32 @@
     <title>Homepage</title>
 </head>
 <body>
-
-    <section id="header">
+    <header>
         <nav>
-            <div class="logo-ctn">
-                <img class="logo" src="../images/train.png" alt="logo">
-                <h1 class="name">Ticketac</h1>
+            <div class="logo_ctn">
+                <a href="#"><img src="../images/train.png" alt="logo"></a>
+                <a href="#">Ticketac</a>
             </div>
-            <div class="nav_links">
-                <ul>
-                    <li><a class="connection" href="#">Connexion</a></li>
-                    <li><a href="#">Mes derniers voyages</a></li>
-                </ul>
-            </div>
+            <ul>
+                <li><a class="connexion" href="#">Connexion</a></li>
+                <li><a href="#">Mes derniers voyages</a></li>
+            </ul>
         </nav>
-    </section>
+    </header>
 
-    <section id="body">
-
-        <div class="search_ctn">
-            <h2>Aller simple :</h2>
-            <div class="input_ctn">
-                <div class="input_search">
-                    <input class="input" type="text" name="departure" placeholder="From ...">
-                    <input class="input" type="text" name="arrival" placeholder="To ...">
-                    <input class="input" type="date" name="date" placeholder="Date ...">
-                    <input class="btn" type="submit" name="submit" value="Go !">
-                </div>
-                <div>
-                    <img class="landmark" src="../images/landmark.png" alt="landmark">
-                </div>
-            </div>
-        </div>
-
-    </section>
-
-
-
-
-    
-    <section id="footer">
+    <section id="main_content">
+        <h2>Billet aller simple</h2>
         <div>
-            <p>Batch #50 - La Capsule</p>
+            <input class="input" type="text" name="departure" placeholder="Départ">
+            <input class="input" type="text" name="arrival" placeholder="Arrivée">
+            <input class="input" type="date" name="date" placeholder="Date">
+            <input class="btn" type="submit" name="submit" value="Go !">
         </div>
+            <img class="landmark" src="../images/landmark.png" alt="landmark">
     </section>
-
     
+    <footer>
+        <p>La Capsule - Batch #50</p>
+    </footer>
 </body>
 </html>
