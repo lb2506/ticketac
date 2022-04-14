@@ -35,17 +35,19 @@
             </thead>
             <tbody>
 
-            
+            <% let totalBasket = 0; %>
+            <% for (var i=0; i<dataBasket.length; i++) { %>
+            <% totalBasket += parseInt(dataBasket[i].price); %> 
 
               <tr>
                 <td>1</td>
-                <td><%=dataBasket.departure%>/<%=dataBasket.arrival%></td>
-                <td><%=dataBasket.date%></td>
-                <td><%=dataBasket.departureTime%></td>
-                <td><%=dataBasket.price%> €</td>
+                <td><%=dataBasket[i].departure%>/<%=dataBasket[i].arrival%></td>
+                <td><%=dataBasket[i].date%></td>
+                <td><%=dataBasket[i].departureTime%></td>
+                <td><%=dataBasket[i].price%> €</td>
               </tr>
 
-         
+         <%}%>
 
             </tbody>
             <tfoot>
@@ -54,7 +56,7 @@
                   <th></th>
                   <th></th>
                   <th></th>
-                  <th>Prix total en €</th>
+                  <th><%=parseInt(totalBasket)%> €</th>
                 </tr>
               </tfoot>
           </table>

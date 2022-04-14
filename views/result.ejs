@@ -30,7 +30,7 @@
         <div class="cartebillet">
             <div><%=searchJourney[i].departure%>/<%=searchJourney[i].arrival%></div>
             <div class="date_train" >Départ du train à <%=searchJourney[i].departureTime%></div>
-            <div><%=searchJourney[i].price%> € <a href="./basket?departureFromFront=<%=searchJourney[i].departure%>&arrivalFromFront=<%=searchJourney[i].departure%>&dateFromFront=<%=searchJourney[i].date%>&departureTimeFromFront=<%=searchJourney[i].departureTime%>&priceFromFront=<%=searchJourney[i].price%>"><button class="btn" type="submit">Reserver</button></a></div>
+            <div><%=searchJourney[i].price%> € <a href="./basket?departureFromFront=<%=searchJourney[i].departure%>&arrivalFromFront=<%=searchJourney[i].arrival%>&dateFromFront=<%=searchJourney[i].date%>&departureTimeFromFront=<%=searchJourney[i].departureTime%>&priceFromFront=<%=searchJourney[i].price%>"><button class="btn" type="submit">Reserver</button></a></div>
         </div>
 
         <%}%>

@@ -108,19 +108,19 @@ router.post('/homepage', async function(req, res, next) {
 
 /* ROUTE BASKET */
 router.get('/basket', function(req, res, next) {
-console.log("début de la route basket");
-    req.session.basket = {
+  if (!req.session.basket) {
+    req.session.basket = []
+  }
+
+    req.session.basket.push({
       departure: req.query.departureFromFront,
-      arrival: req.query.departureFromFront,
+      arrival: req.query.arrivalFromFront,
       date: req.query.dateFromFront,
       departureTime: req.query.departureTimeFromFront,
       price: req.query.priceFromFront
-    }
-
+    })
 
   var dataBasket = req.session.basket;
-  console.log(dataBasket);
-  console.log(dataBasket.departure);
 
   res.render('basket', {dataBasket});
 });
@@ -133,6 +133,7 @@ console.log("début de la route basket");
 /* ROUTE LOGOUT */
 router.get('/logout', function(req,res,next){
   req.session.user = null;
+  req.session.basket = null;
   res.redirect('/')
 });
 
