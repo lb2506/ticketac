@@ -1,5 +1,4 @@
 var express = require('express');
-const { redirect } = require('express/lib/response');
 var router = express.Router();
 
 var journeyModel = require('../models/journey')
@@ -21,8 +20,8 @@ router.post('/sign-up', async function(req, res, next) {
     var newUser = new userModel({
       firstname: req.body.firstnameFromFront,
       lastname: req.body.lastnameFromFront,
-      password: req.body.passwordFromFront,
-      username: req.body.usernameFromFront,
+      email: req.body.emailFromFront,
+      password: req.body.passwordFromFront
     })
   
     var newUserSave = await newUser.save();
@@ -50,13 +49,15 @@ router.post('/sign-in', async function(req, res, next) {
 
   if(searchUser!= null){
     req.session.user = {
-      firstname: newUserSave.firstname,
-      lastname: newUserSave.lastname,
-      id: newUserSave._id,
+      firstname: searchUser.firstname,
+      lastname: searchUser.lastname,
+      id: searchUser._id
     }
     res.redirect('/homepage')
+    console.log("ok")
   } else {
     res.redirect('/')
+    console.log("pas ok")
   }
 
 });
@@ -68,11 +69,9 @@ router.get('/homepage', async function(req, res, next) {
     departure: req.body.departureFromFront,
     arrival: req.body.arrivalFromFront,
     date: req.body.dateFromFront,
-       // Attention peut être un problème de format de dates pour pouvoir les comparer
   })
 
   if(searchJourney!= null){
-    //Ou plutôt if 'searchJourney est un tableau vide
   res.render('result', {searchJourney});
 } else {
   res.redirect('/error');
@@ -80,11 +79,10 @@ router.get('/homepage', async function(req, res, next) {
 
 });
 
-// /* ROUTE RESULT */
-// router.get('/result', function(req, res, next) {
-
-//   res.render('result', {});
-// });
+/* ROUTE RESULT */
+router.get('/result', function(req, res, next) {
+  res.render('result');
+});
 
 // /* ROUTE BASKET */
 // router.get('/basket', function(req, res, next) {
