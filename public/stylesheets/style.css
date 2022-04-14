@@ -121,6 +121,7 @@ a{
   padding: 0 20px;
   border-radius: 5px;
   cursor: pointer;
+  margin-left: 20px;
 
 }
 
@@ -141,6 +142,7 @@ footer{
 table{
   background-color: #fff;
   width: 70%;
+  border-radius: 5px;
 }
 
 tr{
@@ -159,4 +161,12 @@ tfoot{
   width: 70%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+  padding: 0 20px;
+}
+
+.date_train{
+  color: rgb(174, 174, 174);
+  font-style: italic;
 }
