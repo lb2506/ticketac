@@ -5,6 +5,11 @@ var router = express.Router();
 var journeyModel = require('../models/journey')
 var userModel = require('../models/users')
 
+/* GET "/" */
+router.get('/', function(req, res, next) {
+  res.render('login', {});
+});
+
 /* ROUTE SIGN-UP */
 router.post('/sign-up', async function(req, res, next) {
 
@@ -35,45 +40,39 @@ router.post('/sign-up', async function(req, res, next) {
   
 });
 
-/* ROUTE SIGN-IN */
-router.post('/sign-in', function(req, res, next) {
+// /* ROUTE SIGN-IN */
+// router.post('/sign-in', function(req, res, next) {
 
+//   res.redirect('/');
+//   res.redirect('/homepage');
+// });
 
+// /* ROUTE HOMEPAGE */
+// router.get('/homepage', function(req, res, next) {
+//   res.render('homepage', {});
+// });
 
+// /* ROUTE RESULT */
+// router.get('/result', function(req, res, next) {
 
+//   res.render('result', {});
+// });
 
+// /* ROUTE BASKET */
+// router.get('/basket', function(req, res, next) {
+//   res.render('basket', {});
+// });
 
-  
-  res.redirect('/');
-  res.redirect('/homepage');
-});
+// /* ROUTE ORDERS */
+// router.get('/orders', function(req, res, next) {
+//   res.render('oders', {});
+// });
 
-/* ROUTE HOMEPAGE */
-router.get('/homepage', function(req, res, next) {
-  res.render('homepage', {});
-});
+// /* ROUTE LOGOUT */
+// router.get('/logout', function(req,res,next){
 
-/* ROUTE RESULT */
-router.get('/result', function(req, res, next) {
-
-  res.render('result', {});
-});
-
-/* ROUTE BASKET */
-router.get('/basket', function(req, res, next) {
-  res.render('basket', {});
-});
-
-/* ROUTE ORDERS */
-router.get('/orders', function(req, res, next) {
-  res.render('oders', {});
-});
-
-/* ROUTE LOGOUT */
-router.get('/logout', function(req,res,next){
-
-  res.redirect('/')
-});
+//   res.redirect('/')
+// });
 
 module.exports = router;
 
