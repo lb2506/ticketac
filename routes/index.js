@@ -47,10 +47,10 @@ router.post('/sign-up', async function(req, res, next) {
 //   res.redirect('/homepage');
 // });
 
-// /* ROUTE HOMEPAGE */
-// router.get('/homepage', function(req, res, next) {
-//   res.render('homepage', {});
-// });
+/* ROUTE HOMEPAGE */
+router.get('/homepage', function(req, res, next) {
+  res.render('homepage', {});
+});
 
 // /* ROUTE RESULT */
 // router.get('/result', function(req, res, next) {
