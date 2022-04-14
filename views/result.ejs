@@ -5,24 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../stylesheets/style.css">
-    <title>Homepage</title>
+    <title>Un billet est disponible pour votre train du <%= dateFormat(new Date(searchJourney[0].date)) %></title>
 </head>
 <body>
     <header>
         <nav>
             <div class="logo_ctn">
-                <a href="#"><img src="../images/train.png" alt="logo"></a>
-                <a href="#">Ticketac</a>
+                <a href="./homepage"><img src="../images/train.png" alt="logo"></a>
+                <a href="./homepage">Ticketac</a>
             </div>
             <ul>
-                <li><a class="deconnexion" href="/logout">Déconnexion</a></li>
+                <li><a class="deconnexion" href="./logout">Déconnexion</a></li>
                 <li><a href="#">Mes derniers voyages</a></li>
             </ul>
         </nav>
     </header>
 
     <section id="main_content">
-        <div>Ticket disponible pour le <%= dateFormat(new Date(searchJourney[0].date)) %></div>
+        <h3 class="titreform">Ticket disponible pour le <%= dateFormat(new Date(searchJourney[0].date)) %></h3>
 
        <% if (searchJourney) { %>
         <%for (var i=0; i<searchJourney.length; i++) {%>
