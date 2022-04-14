@@ -60,6 +60,13 @@ a{
 
 /* SECTION BODY */
 
+#body{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
 
 /* FORMULAIRE D'INSCRIPTION ET DE CONNEXION */
 .blocconnect {
@@ -84,6 +91,17 @@ a{
   flex-direction: column;
   align-items: center;
   margin-left: 50px;
+}
+
+.search_ctn{
+  background-color: aquamarine;
+  text-align: center;
+  margin-top: 10vh;
+}
+
+.landmark{
+  height: 35vh;
+  margin-top: 10vh;
 }
 
 /* SECTION FOOTER */
