@@ -63,11 +63,17 @@ router.post('/sign-in', async function(req, res, next) {
 
 /* ROUTE HOMEPAGE */
 router.get('/homepage', async function(req, res, next) {
-  // var journeyList = await journeyModel.find();
 
+  var searchJourney = await journeyModel.find({
+    departure: req.body.departureFromFront,
+    arrival: req.body.arrivalFromFront,
+    date: req.body.dateFromFront,
+       // Attention peut être un problème de format de dates pour pouvoir les comparer
+  })
 
-
-  res.render('result', {});
+  if(searchJourney!= null){
+    //Ou plutôt if 'searchJourney est un tableau vide
+  res.render('result', {searchJourney});
 } else {
   res.redirect('/error');
 }
@@ -97,16 +103,6 @@ router.get('/logout', function(req,res,next){
 });
 
 module.exports = router;
-
-
-
-
-
-
-
-
-
-
 
 // -----------------DÉPLACÉ DANS connection.js-----------------------------------------
 // const mongoose = require('mongoose');
