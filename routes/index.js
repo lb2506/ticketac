@@ -63,6 +63,7 @@ router.post('/sign-in', async function(req, res, next) {
 });
 
 /* ROUTE HOMEPAGE */
+
 router.post('/homepage', async function(req, res, next) {
 
   var searchJourney = await journeyModel.find({
