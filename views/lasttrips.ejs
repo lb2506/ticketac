@@ -36,7 +36,7 @@
               <%for (var i=0; i<lastTrips.tickets.length; i++) {%>
 
               <tr>
-                <td><%=dateFormat(new Date(lastTrips.tickets[i].date))%></td>
+                <td><%=dateFormat(lastTrips.tickets[i].date)%></td>
                 <td><%=lastTrips.tickets[i].departure%>/<%=lastTrips.tickets[i].arrival%></td>
                 <td><%=lastTrips.tickets[i].departureTime%></td>
                 <td><%=lastTrips.tickets[i].price%>€</td>
@@ -46,7 +46,7 @@
 
             </tbody>
           </table>
-          <button class="btn" type="submit">Retour</button>
+          <a href="/homepage"><button class="btn" type="submit">Retour</button></a>
     </section>
     
     <footer>

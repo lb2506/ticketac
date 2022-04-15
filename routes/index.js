@@ -103,9 +103,14 @@ router.post('/homepage', async function(req, res, next) {
 
 /* ROUTE BASKET */
 router.get('/basket', async function(req, res, next) {
+  if (req.session.user == null) {
+    res.redirect('/');
+  } else {
   if (!req.session.basket) {
     req.session.basket = []
   }
+ 
+if (Object.keys(req.query).length !== 0) {
 
     req.session.basket.push({
       departure: req.query.departureFromFront,
@@ -114,14 +119,20 @@ router.get('/basket', async function(req, res, next) {
       departureTime: req.query.departureTimeFromFront,
       price: req.query.priceFromFront
     })
-
+  }
     var dataBasket=req.session.basket
 
+  
   res.render('basket', {dataBasket});
+  }
 });
 
 // ROUTE ENREGISTRER //
 router.get('/confirm', async function(req, res, next) {
+  if (req.session.user == null) {
+    res.redirect('/');
+  } else {
+  
   var dataBasket=req.session.basket
   var user = await userModel.findById(req.session.user.id)
 
@@ -138,14 +149,19 @@ router.get('/confirm', async function(req, res, next) {
   req.session.basket = null;
   
   res.redirect('homepage');
+}
 });
 
 /* ROUTE LASTTRIPS */
 router.get('/lasttrips', async function(req, res, next) {
+  if (req.session.user == null) {
+    res.redirect('/');
+  } else {
   console.log('début de la route LASTTRIPS')
   var lastTrips = await userModel.findById({_id : req.session.user.id})
   console.log(lastTrips)
   res.render('lasttrips', {lastTrips});
+  }
 });
 
 /* ROUTE LOGOUT */
