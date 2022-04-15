@@ -40,11 +40,11 @@
             <% totalBasket += parseInt(dataBasket[i].price); %> 
 
               <tr>
-                <td>1</td>
-                <td><%=dataBasket[i].departure%>/<%=dataBasket[i].arrival%></td>
-                <td><%=dateFormat(new Date(dataBasket[i].date))%></td>
-                <td><%=dataBasket[i].departureTime%></td>
-                <td><%=dataBasket[i].price%> €</td>
+                <td><%=[i + 1]%></td>
+                <td class="trajet"><%=dataBasket[i].departure%>/<%=dataBasket[i].arrival%></td>
+                <td class="date"><%=dateFormat(new Date(dataBasket[i].date))%></td>
+                <td class="depart"><%=dataBasket[i].departureTime%></td>
+                <td class="prix"><%=dataBasket[i].price%> €</td>
               </tr>
 
          <%}%>
@@ -61,14 +61,15 @@
               </tfoot>
           </table>
           
-          <a href="/confirm"><button class="btn" type="submit">Enregistrer</button></a>
-       
-
-
+          <!-- <a href="/confirm"><button class="btn" type="submit">Enregistrer</button></a> -->
+          <input  type="hidden" value="<%=JSON.stringify(dataBasket)%>" id="dataBasket">
+          <a href="/confirm"><button href="/confirm" onclick="popup()" class="btn" type="submit">Payer</button></a>
     </section>
     
     <footer>
         <p>© La Capsule - Batch #50</p>
     </footer>
+
+    <script src="../javascripts/script.js"></script>
 </body>
 </html>
