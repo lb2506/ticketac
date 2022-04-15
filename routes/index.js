@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
 
 /* ROUTE RESULT */
 router.get('/result', function(req, res, next) {
-  console.log(req.session.user)
+  
   res.render('result', {searchJourney: req.session.user.journeys})
 });
 
@@ -68,10 +68,8 @@ router.post('/sign-in', async function(req, res, next) {
       id: searchUser._id
     }
     res.redirect('/homepage')
-    console.log("ok")
   } else {
     res.redirect('/')
-    console.log("pas ok")
   }
 
 });
@@ -94,10 +92,7 @@ router.post('/homepage', async function(req, res, next) {
     date: req.body.dateFromFront,
   })
 
-  console.log(searchJourney.length)
-
   if(searchJourney.length == 0){
-    console.log("pas de trajet trouvé")
     res.redirect('/noresult');
   } else {
     req.session.user.journeys = searchJourney
@@ -107,7 +102,7 @@ router.post('/homepage', async function(req, res, next) {
 });
 
 /* ROUTE BASKET */
-router.get('/basket', function(req, res, next) {
+router.get('/basket', async function(req, res, next) {
   if (!req.session.basket) {
     req.session.basket = []
   }
@@ -120,14 +115,40 @@ router.get('/basket', function(req, res, next) {
       price: req.query.priceFromFront
     })
 
-  var dataBasket = req.session.basket;
+    var dataBasket=req.session.basket
 
   res.render('basket', {dataBasket});
 });
 
-// /* ROUTE ORDERS */
-// router.get('/orders', function(req, res, next) {
-//   res.render('oders', {});
+// ROUTE ENREGISTRER //
+router.get('/confirm', async function(req, res, next) {
+   console.log('début de la route ENREGISTRER')
+   var dataBasket=req.session.basket
+   console.log(dataBasket)
+ 
+  var user = await userModel.findById(req.session.user.id)
+
+  for (var i=0; i<dataBasket.length; i++) {
+  await user.tickets.push({
+    departure: dataBasket[i].departure,
+    arrival: dataBasket[i].arrival,
+    date: dataBasket[i].date,
+    departureTime: dataBasket[i].departureTime,
+    price: dataBasket[i].price
+  })
+}
+  var userSaved = await user.save(); 
+  req.session.dataBasket = null;
+  console.log(userSaved)
+  res.redirect('homepage');
+});
+
+// // /* ROUTE LASTTRIPS */
+// router.get('/lasttrips', async function(req, res, next) {
+//   console.log('début de la route LAST TRIPS')
+//   var lastOrders = await userModel.findById(req.session.uder.id).populate('userJourney')
+//   console.log(lastOrders);
+//   res.render('lasttrips', {lastOrders});
 // });
 
 /* ROUTE LOGOUT */
